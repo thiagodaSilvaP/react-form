@@ -1,6 +1,18 @@
 import React, { useState } from "react";
 
-import "../../styles/components/Form/form.css";
+// import "../../styles/components/Form/form.css";
+
+import {
+  Container,
+  InputContainer,
+  Button,
+  RadioContainer,
+  Radio,
+  SelectContainer,
+  TextAreaContainer,
+  CheckBoxContainer,
+  TextArea
+} from "./style";
 
 export const Form = () => {
   const [formData, setFormData] = useState({});
@@ -10,74 +22,71 @@ export const Form = () => {
 
     // const form = new FormData(event.target);
     // const data = Object.fromEntries(form);
-    const data = {...formData}
+    const data = { ...formData };
 
     console.log("submit", data);
   };
   const handleChangeInput = (event) => {
     const { name, value, type, checked } = event.target;
-    const isCheckbox = type === 'checkbox'
+    const isCheckbox = type === "checkbox";
 
-    const data = formData[name] || {}
+    const data = formData[name] || {};
 
-    if (isCheckbox) data[value] = checked
+    if (isCheckbox) data[value] = checked;
 
-    const newValue = (isCheckbox) ? data : value
+    const newValue = isCheckbox ? data : value;
     setFormData({ ...formData, [name]: newValue });
-    console.log("handleInptChange",data, formData);
+    console.log("handleInptChange", data, formData);
   };
 
   return (
     <>
-      <form action="" className="form" onSubmit={handleSubmit}>
-        <div className="input-container">
+      <Container action="" onSubmit={handleSubmit}>
+        <InputContainer>
           <input
             type="text"
             id="email"
             name="email"
             value={formData.email || ""}
-            className="input-form"
             placeholder="example@domain.com"
             onChange={handleChangeInput}
           />
-          <label htmlFor="email" className="label-input-form">
+          <label htmlFor="email" >
             Email
           </label>
-        </div>
-        <div className="radios-container">
-          <label htmlFor="cafe" className="label-radio-form">
-            <input
+        </InputContainer>
+        <RadioContainer>
+          <label htmlFor="cafe">
+            <Radio
               type="radio"
               name="drink"
               id="cafe"
-              className="radio-form"
               onChange={handleChangeInput}
               value="cafe"
               checked={formData.drink === "cafe"}
             />
             Café
           </label>
-          <label htmlFor="cha" className="label-radio-form">
-            <input
+          <label htmlFor="cha">
+            <Radio
               type="radio"
               name="drink"
               id="cha"
-              className="radio-form"
               onChange={handleChangeInput}
               value="cha"
               checked={formData.drink === "cha"}
             />
             Chá
           </label>
-        </div>
-        <div className="checks-container">
+        </RadioContainer>
+        <CheckBoxContainer>
           <label htmlFor="facebook">
             <input
               type="checkbox"
               name="social"
               id="facebook"
               onChange={handleChangeInput}
-              value='facebook'
+              value="facebook"
             />
             Facebook
           </label>
@@ -87,7 +96,7 @@ export const Form = () => {
               name="social"
               id="twitter"
               onChange={handleChangeInput}
-              value='twitter'
+              value="twitter"
             />
             Twitter
           </label>
@@ -97,16 +106,15 @@ export const Form = () => {
               name="social"
               id="instagram"
               onChange={handleChangeInput}
-              value='instagram'
+              value="instagram"
             />
             Instagram
           </label>
-        </div>
-        <div className="select-container">
+        </CheckBoxContainer>
+        <SelectContainer>
           <select
             name="language"
             id="language"
-            className="select-form"
             onChange={handleChangeInput}
             value={formData.language || ""}
           >
@@ -114,23 +122,20 @@ export const Form = () => {
             <option value="php">PHP</option>
             <option value="java">Java</option>
           </select>
-        </div>
-        <div className="text-area-container">
-          <textarea
+        </SelectContainer>
+        <TextAreaContainer>
+          <TextArea
             name="bio"
             id="bio"
-            className="text-area-form"
             cols="30"
             rows="10"
             onChange={handleChangeInput}
             value={formData.bio || ""}
-          ></textarea>
-        </div>
+          ></TextArea>
+        </TextAreaContainer>
 
-        <button type="submit" className="button-form">
-          Enviar
-        </button>
-      </form>
+        <Button type="submit">Enviar</Button>
+      </Container>
     </>
   );
 };

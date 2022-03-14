@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Form } from '../../components/form/Form'
 
-import '../../styles/pages/Form/form.css'
+import {Container} from './style';
 
 export const FormPage = (params) => {
     return (
-        <div className='form-container'>
+        <Container>
             <Form />
-        </div>
+        </Container>
     )
 };
