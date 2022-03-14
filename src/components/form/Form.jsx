@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { Input } from "../Input/";
+
 // import "../../styles/components/Form/form.css";
 
 import {
@@ -11,7 +13,7 @@ import {
   SelectContainer,
   TextAreaContainer,
   CheckBoxContainer,
-  TextArea
+  TextArea,
 } from "./style";
 
 export const Form = () => {
@@ -43,69 +45,64 @@ export const Form = () => {
     <>
       <Container action="" onSubmit={handleSubmit}>
         <InputContainer>
-          <input
-            type="text"
-            id="email"
+          <Input
+            type="email"
             name="email"
+            id="email"
             value={formData.email || ""}
-            placeholder="example@domain.com"
-            onChange={handleChangeInput}
+            handleChangeInput={handleChangeInput}
           />
-          <label htmlFor="email" >
-            Email
-          </label>
+          <label htmlFor="email">Email</label>
         </InputContainer>
         <RadioContainer>
           <label htmlFor="cafe">
-            <Radio
+            <Input
               type="radio"
               name="drink"
               id="cafe"
-              onChange={handleChangeInput}
+              handleChangeInput={handleChangeInput}
               value="cafe"
-              checked={formData.drink === "cafe"}
             />
             Café
           </label>
           <label htmlFor="cha">
-            <Radio
+            <Input
               type="radio"
               name="drink"
               id="cha"
-              onChange={handleChangeInput}
+              handleChangeInput={handleChangeInput}
               value="cha"
-              checked={formData.drink === "cha"}
             />
             Chá
           </label>
         </RadioContainer>
         <CheckBoxContainer>
           <label htmlFor="facebook">
-            <input
+            <Input
               type="checkbox"
               name="social"
               id="facebook"
-              onChange={handleChangeInput}
+              handleChangeInput={handleChangeInput}
               value="facebook"
             />
             Facebook
           </label>
           <label htmlFor="twitter">
-            <input
+            <Input
               type="checkbox"
               name="social"
               id="twitter"
-              onChange={handleChangeInput}
+              handleChangeInput={handleChangeInput}
               value="twitter"
             />
             Twitter
           </label>
           <label htmlFor="instagram">
-            <input
+            <Input
               type="checkbox"
               name="social"
               id="instagram"
-              onChange={handleChangeInput}
+              handleChangeInput={handleChangeInput}
               value="instagram"
             />
             Instagram
@@ -133,7 +130,6 @@ export const Form = () => {
             value={formData.bio || ""}
           ></TextArea>
         </TextAreaContainer>
-
         <Button type="submit">Enviar</Button>
       </Container>
     </>

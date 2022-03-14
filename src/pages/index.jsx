@@ -1,4 +1,4 @@
-import { FormPage } from './form/FormPage';
+import { FormPage } from './Form/';
 
 import {Container} from './style';
 
