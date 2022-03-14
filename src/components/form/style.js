@@ -28,6 +28,7 @@ export const InputContainer = styled.div`
     background-color: #444;
     color: #fff;
     ${baseInput}
+    margin-bottom: 2px;
   }
 
   label {
@@ -41,6 +42,12 @@ export const InputContainer = styled.div`
     font-size: x-small;
     cursor: text;
     background-color: #444;
+  }
+
+  small {
+    color: red;
+    padding: 4px;
+    font-size: x-small;
   }
 `;
 export const Button = styled.div`

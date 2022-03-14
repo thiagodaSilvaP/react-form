@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { Input } from "../Input/";
+import {validate} from '../../errors/validate';
 
 // import "../../styles/components/Form/form.css";
 
@@ -18,6 +19,7 @@ import {
 
 export const Form = () => {
   const [formData, setFormData] = useState({});
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,6 +27,8 @@ export const Form = () => {
     // const form = new FormData(event.target);
     // const data = Object.fromEntries(form);
     const data = { ...formData };
+    setErrors(validate(data))
+    console.log(errors);
 
     console.log("submit", data);
   };
@@ -54,6 +58,7 @@ export const Form = () => {
             placeholder="example@domain.com"
           />
           <label htmlFor="email">Email</label>
+          {errors.email && <small>{errors.email}</small>}
         </InputContainer>
         <RadioContainer>
           <label htmlFor="cafe">
@@ -77,6 +82,7 @@ export const Form = () => {
             Chá
           </label>
         </RadioContainer>
+          {errors.drink && <small style={{color: "red", fontSize: 'x-small'}}>{errors.drink}</small>}
         <CheckBoxContainer>
           <label htmlFor="facebook">
             <Input
@@ -130,6 +136,7 @@ export const Form = () => {
             onChange={handleChangeInput}
             value={formData.bio || ""}
           ></TextArea>
+          {errors.bio && <small style={{color: "red", fontSize: 'x-small'}}>{errors.bio}</small>}
         </TextAreaContainer>
         <Button>
           <Input type="submit" value="Enviar" />
