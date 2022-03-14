@@ -1,12 +1,8 @@
-export const Input = ({type, id, name, value, handleChangeInput}) => {
+export const Input = (props) => {
   return (
     <>
       <input
-        type={type}
-        id={id}
-        name={name}
-        value={value}
-        onChange={handleChangeInput}
+       {...props}
       />
     </>
   );

@@ -43,16 +43,19 @@ export const InputContainer = styled.div`
     background-color: #444;
   }
 `;
-export const Button = styled.button`
-  background-color: #555;
-  color: #fff;
-  font-weight: bolder;
-  cursor: pointer;
-  transition: 0.1s ease;
-  ${baseInput}
+export const Button = styled.div`
+  width: 100%;
+  input {
+    background-color: #555;
+    color: #fff;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: 0.1s ease;
+    ${baseInput}
 
-  &:hover {
-    background-color: rgb(76, 76, 76);
+    &:hover {
+      background-color: rgb(76, 76, 76);
+    }
   }
 `;
 

@@ -50,7 +50,8 @@ export const Form = () => {
             name="email"
             id="email"
             value={formData.email || ""}
-            handleChangeInput={handleChangeInput}
+            onChange={handleChangeInput}
+            placeholder="example@domain.com"
           />
           <label htmlFor="email">Email</label>
         </InputContainer>
@@ -60,7 +61,7 @@ export const Form = () => {
               type="radio"
               name="drink"
               id="cafe"
-              handleChangeInput={handleChangeInput}
+              onChange={handleChangeInput}
               value="cafe"
             />
             Café
@@ -70,7 +71,7 @@ export const Form = () => {
               type="radio"
               name="drink"
               id="cha"
-              handleChangeInput={handleChangeInput}
+              onChange={handleChangeInput}
               value="cha"
             />
             Chá
@@ -82,7 +83,7 @@ export const Form = () => {
               type="checkbox"
               name="social"
               id="facebook"
-              handleChangeInput={handleChangeInput}
+              onChange={handleChangeInput}
               value="facebook"
             />
             Facebook
@@ -92,7 +93,7 @@ export const Form = () => {
               type="checkbox"
               name="social"
               id="twitter"
-              handleChangeInput={handleChangeInput}
+              onChange={handleChangeInput}
               value="twitter"
             />
             Twitter
@@ -102,7 +103,7 @@ export const Form = () => {
               type="checkbox"
               name="social"
               id="instagram"
-              handleChangeInput={handleChangeInput}
+              onChange={handleChangeInput}
               value="instagram"
             />
             Instagram
@@ -130,7 +131,9 @@ export const Form = () => {
             value={formData.bio || ""}
           ></TextArea>
         </TextAreaContainer>
-        <Button type="submit">Enviar</Button>
+        <Button>
+          <Input type="submit" value="Enviar" />
+        </Button>
       </Container>
     </>
   );
